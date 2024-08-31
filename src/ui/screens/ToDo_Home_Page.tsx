@@ -77,12 +77,12 @@ import List_Empty_Comp from '../comps/List_Empty_Comp.tsx';
 import FloatingButton from '../floating_comp/FloatingButton.tsx';
 import One_ToDo from '../list_comp/One_ToDo.tsx';
 
-export interface Props {
+export interface ToDo_Home_Page_Props {
   // navigation:NavigationRoute,
   navigation: any;
 }
 
-const ToDo_Home: React.FC<Props> = ({navigation /*route*/}) => {
+const ToDo_Home_Page: React.FC<ToDo_Home_Page_Props> = ({navigation /*route*/}) => {
   const [refreshingState, setRefreshingState] = useState(false);
 
 
@@ -102,6 +102,9 @@ const ToDo_Home: React.FC<Props> = ({navigation /*route*/}) => {
   const all_todos: TodoItem[] = useAppSelector(all_todo_Items);
 
 
+
+
+  console.log("all_todos: ",all_todos);
 
 /*  const update_MasterLoadingState2 = (
     newBoolean_MasterLoading_State: boolean,
@@ -251,16 +254,7 @@ const ToDo_Home: React.FC<Props> = ({navigation /*route*/}) => {
           // DON'T FOUND THE PROBLEM IN DATA
           data={all_todos}
           renderItem={({item, index}) => (
-            /* <One_Vote_UP_User__Flat_List_Item
-                                                     index={index}
-                                                     item={item}
-                                                     t_width={displayWidth}
-                                                     t_height={displayHeight}
-                                                     tapped={()=>{
-                                                         console.log("abc");
-                                                     }}
-                                                     navigation_2 ={navigation}
-                                                 />*/
+
 
             <One_ToDo
               One_Todo_Data={item}
@@ -288,11 +282,6 @@ const ToDo_Home: React.FC<Props> = ({navigation /*route*/}) => {
 
           indicatorStyle={'black'}
           horizontal={false}
-          onEndReachedThreshold={1}
-          initialNumToRender={2} // default 10
-          removeClippedSubviews={false} // default false
-          windowSize={3} // default 21
-          // ListEmptyComponent={listEmpty}
           refreshControl={
             <RefreshControl
               refreshing={refreshingState}
@@ -332,4 +321,4 @@ const ToDo_Home: React.FC<Props> = ({navigation /*route*/}) => {
 
 const notificationStyles = StyleSheet.create({});
 
-export default ToDo_Home;
+export default ToDo_Home_Page;

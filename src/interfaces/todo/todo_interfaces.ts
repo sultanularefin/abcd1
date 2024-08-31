@@ -15,7 +15,16 @@ interface TodoList {
     items: TodoItem[];
 }
 
+export interface edit_todo_item_payload_interface{
 
+    key: string,
+    value_string: string,
+    value_boolean: boolean,
+
+    input_type: string,
+    id: number,
+
+}
 
 export interface user_todo_item_payload_interface{
 
@@ -24,6 +33,7 @@ export interface user_todo_item_payload_interface{
     value_boolean: boolean,
 
     input_type: string,
+    // id: number,
 
 }
 

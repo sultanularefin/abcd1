@@ -62,11 +62,14 @@ const Logger_Edit_Note_Button: React.FC<Logger_Edit_Note_Button_Props> = ({
         ]}
         onPress={() => {
 
-
-          //   const editing_to_do_item_details: TodoItem = useAppSelector(editing_to_do_item);
           dispatch(update_edited_notes_to_store_1(editing_to_do_item_details.id));
 
-          return navigation.goBack();
+          return setTimeout(() => {
+            // resolve("foo");
+            navigation.goBack();
+          }, 600);
+
+          // return navigation.goBack();
         }}>
         <Text style={Logger_Edit_Note_Button_Styles.loginText}>
           Edit Note

@@ -23,7 +23,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
 import {store} from "./appStore/app/store";
 import SplashScreen from "./ui/screens/identity/SplashScreen";
-import ToDo_Home from "./ui/screens/ToDo_Home.tsx";
+import ToDo_Home_Page from "./ui/screens/ToDo_Home_Page.tsx";
 
 import Logger_Create_Note_Page from "./ui/screens/Logger_Create_Note_Page.tsx";
 import Logger_Edit_Note_Page from "./ui/screens/Logger_Edit_Note_Page.tsx";
@@ -100,7 +100,7 @@ const App: React.FC<Props> = (props) => {
 
                                 <Native_Root_Stack.Screen
                                     name="ToDo_Home"
-                                    component={ToDo_Home}
+                                    component={ToDo_Home_Page}
                                     options={{
                                         headerShown: false,
                                         // headerShown: true,

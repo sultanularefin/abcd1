@@ -31,7 +31,7 @@ const One_ToDo: React.FC<One_Todo_Props> = ({
   t_width,
   navigation,
 }) => {
-  console.log('One_Todo_Data: ', One_Todo_Data);
+  // console.log('One_Todo_Data: ', One_Todo_Data);
   const indexPrimary = index;
 
   const first_part_height= comp_Height/3;
@@ -82,7 +82,13 @@ const One_ToDo: React.FC<One_Todo_Props> = ({
           // borderWidth: hairlineWidth,
           // marginBottom: 5,
         }}>
-        <Text style={{color: 'black'}}>One Todo</Text>
+          <Text style={One_Note_Styles.title} key={One_Todo_Data.id}>
+              {One_Todo_Data?.title
+                  ? One_Todo_Data.title.length < 60
+                      ? One_Todo_Data.title
+                      : `${One_Todo_Data.title.slice(30)}...`
+                  : null}
+          </Text>
 
         <ToDo_Details_Comp
           navigation={navigation}
@@ -117,13 +123,7 @@ const One_ToDo: React.FC<One_Todo_Props> = ({
 
             // backgroundColor: 'skyblue',
           }}>
-          <Text style={One_Note_Styles.title} key={One_Todo_Data.id}>
-            {One_Todo_Data?.title
-              ? One_Todo_Data.title.length < 60
-                ? One_Todo_Data.title
-                : `${One_Todo_Data.title.slice(30)}...`
-              : null}
-          </Text>
+
 
           <Text style={One_Note_Styles.description}>
             {One_Todo_Data?.title

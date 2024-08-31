@@ -41,12 +41,16 @@ import {useActionSheet} from "@expo/react-native-action-sheet";
 import Snackbar from "react-native-snackbar";
 import {
     clear_editing_note,
-    clear_new_todo_1,
+    clear_new_todo_1, edit_indexed_editing_note,
     editing_to_do_item,
 
     update_current_new_note
 } from "../../appStore/features/auth/todo_Slice.ts";
-import {TodoItem, user_todo_item_payload_interface} from "../../interfaces/todo/todo_interfaces.ts";
+import {
+    edit_todo_item_payload_interface,
+    TodoItem,
+    user_todo_item_payload_interface
+} from "../../interfaces/todo/todo_interfaces.ts";
 import Title_Edit_1_ToDO from "../inputs/edit/Title_Edit_1_ToDO.tsx";
 import Content_Edit_1_To_Do from "../inputs/edit/Content_Edit_1_To_Do.tsx";
 import Logger_Edit_Note_Button from "../buttons/Logger_Edit_Note_Button.tsx";
@@ -148,31 +152,37 @@ const Logger_Edit_Note_Page: React.FC<Logger_Edit_Note_Page_Props> = ({ navigati
     const onChange_Note_Content = (new_String:string)=>{
 
 
-        const obj4: user_todo_item_payload_interface = {
+        const obj4: edit_todo_item_payload_interface = {
             key: 'content',
             value_string: new_String,
             input_type: 'text',
             value_boolean: false,
+            id: editing_to_do_item_details.id,
+
         };
 
-        return dispatch(update_current_new_note(obj4));
+        return dispatch(edit_indexed_editing_note(obj4));
     }
 
 
 
-    const onChange_Comment_Report_Description_Details = (cause: string) => {
+    const edit_Title = (cause: string) => {
 
 
 
 
-        const obj4: user_todo_item_payload_interface = {
+        const obj4: edit_todo_item_payload_interface = {
             key: 'title',
             value_string: cause,
             input_type: 'text',
             value_boolean: false,
+            id: editing_to_do_item_details.id,
+
         };
 
-        return dispatch(update_current_new_note(obj4));
+        return dispatch(edit_indexed_editing_note(obj4));
+
+
 
 
 
@@ -196,7 +206,7 @@ const Logger_Edit_Note_Page: React.FC<Logger_Edit_Note_Page_Props> = ({ navigati
 
 
             <Custom_Header_User_Name
-                name_String = {"Create Note"}
+                name_String = {"Edit Note"}
                 font_size={24}
 
                 total_Height={displayHeight}
@@ -236,7 +246,7 @@ const Logger_Edit_Note_Page: React.FC<Logger_Edit_Note_Page_Props> = ({ navigati
                     t_Height={displayHeight}
                     users_name={"User"}
                     t_Width={displayWidth}
-                    onChange____Report_Comment__Cause_2={onChange_Comment_Report_Description_Details}
+                    onChange____Report_Comment__Cause_2={edit_Title}
                     TextInput_Report_User_contentRef__2={TextInput_Report__Cause__Ref}
                     // onSelectionChange_test_2={}
                     android_KeyBoard_Focused__onPressIn__testing_2={android_KeyBoard_Focused__onPressIn__testing}
@@ -250,7 +260,7 @@ const Logger_Edit_Note_Page: React.FC<Logger_Edit_Note_Page_Props> = ({ navigati
                     TextInput_feed_contentRef__2={Text_Input_Logger_Feedz_Content_Ref}
 
                     onChange_Note_Content={onChange_Note_Content}
-                    // onSelectionChange_test_2={onSelectionChange_test}
+
                     android_KeyBoard_Focused__onPressIn__testing_2={android_KeyBoard_Focused__onPressIn__testing}
 
                     on_Editing_End_Pressed={onEditing_End_Button_Pressed}

@@ -165,9 +165,7 @@ const Logger_Create_Note_Page: React.FC<Logger_Create_Note_Page_Props> = ({ navi
 
 
 
-    const onChange_Comment_Report_Description_Details = (cause: string) => {
-
-
+    const OnChange_Title = (cause: string) => {
 
 
         const obj4: user_todo_item_payload_interface = {
@@ -241,7 +239,7 @@ const Logger_Create_Note_Page: React.FC<Logger_Create_Note_Page_Props> = ({ navi
                     t_Height={displayHeight}
                     users_name={"User"}
                     t_Width={displayWidth}
-                    onChange____Report_Comment__Cause_2={onChange_Comment_Report_Description_Details}
+                    onChange____Report_Comment__Cause_2={OnChange_Title}
                     TextInput_Report_User_contentRef__2={TextInput_Report__Cause__Ref}
                     // onSelectionChange_test_2={}
                     android_KeyBoard_Focused__onPressIn__testing_2={android_KeyBoard_Focused__onPressIn__testing}
